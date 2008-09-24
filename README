@@ -1,0 +1,66 @@
+merb_meta
+========
+
+A plugin for merb that allows super easy manipulation of Meta tags on a controller by controller,
+page-by-page basis
+
+Merb::Controller#meta
+
+
+### ... from app/controllers/application.rb
+
+class Application < Merb::Controller
+  meta  :title     => "My default page title",
+        :description  => "My default page description",
+        :keywords     => "cool, default keywords, web 2.0"
+end
+
+### ... from app/views/layout/application.html.erb
+#       meta tags can be output via 'meta' or 'meta :tagname'
+
+#       using 'meta' will output all the meta data in html tags like
+<html>
+  <head>
+    <%= meta %>
+    <!--
+      Would render;
+      <title>My default page title</title>
+      <meta name="keywords" content="cool, default keywords, web 2.0" />
+      <meta name="description" content="My default page description" />
+    -->
+  </head>
+  ...
+</html>
+
+#       optionally you can get the value of a particular tag like so:
+<html>
+  <head>
+    <title><%= meta :title %></title>
+    <meta name="keywords" content="<%= meta :keywords %>" />
+    <meta name="description" content="<%= meta :description %>" />
+  </head>
+  <body>
+  ...
+  </body>
+</html>
+
+### ... the tags can be overriden on a per controller or per action basis.
+class ControllerA < Application
+  meta :title => "This is controller a"
+
+  def action_a
+    meta :title => "this is action a", :keywords => "action a, action"
+    render
+    # :title => "this is action a"
+    # :keywords => "action a, action"
+    # :description => "My default page description"
+  end
+  
+  def action_b
+    render
+    # :title => "This is controller a"
+    # :description => "My default page description"
+    # :keywords => "cool, default keywords, web 2.0"
+  end
+
+end
