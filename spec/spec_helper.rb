@@ -25,8 +25,4 @@ def new_controller(action = 'index', controller = nil, additional_params = {})
 end
 
 class Merb::Controller
-  # require 'merb/session/memory_session'
-  # Merb::MemorySessionContainer.setup
-  # include ::Merb::SessionMixin
-  # self.session_secret_key = "footo the bar to the baz"
 end
