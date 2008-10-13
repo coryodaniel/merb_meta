@@ -63,12 +63,14 @@ if defined?(Merb::Plugins)
       #
       # @api private
       def output_meta_tags(meta_data)
-        meta_title = meta_data.delete :title
+        _meta_data = meta_data.clone
+        meta_title = _meta_data.delete :title
         markup = meta_title ? %{<title>#{meta_title}</title>} : ''
 
-        meta_data.each{|name,content|
+        _meta_data.each{|name,content|
           markup << %{<meta name="#{name}" content="#{content}" />}
         }
+        
         markup
       end
     end
