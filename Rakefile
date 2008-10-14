@@ -8,7 +8,7 @@ require "extlib"
 require "spec/rake/spectask"
 
 NAME = "merb_meta"
-GEM_VERSION = "0.0.2"
+GEM_VERSION = "0.0.4"
 AUTHOR = "Cory ODaniel"
 EMAIL = "merb-meta@coryodaniel.com"
 HOMEPAGE = "http://merbivore.com/"
@@ -26,7 +26,7 @@ spec = Gem::Specification.new do |s|
   s.author = AUTHOR
   s.email = EMAIL
   s.homepage = HOMEPAGE
-  s.add_dependency('merb', '>= 0.9.5')
+  s.add_dependency('merb', '>= 0.0.0')
   s.require_path = 'lib'
   s.files = %w(LICENSE README Rakefile TODO) + Dir.glob("{lib,spec}/**/*")
   
@@ -38,7 +38,7 @@ end
 
 desc "install the plugin locally"
 task :install => [:package] do
-  sh %{#{sudo} gem install #{install_home} pkg/#{NAME}-#{GEM_VERSION} --no-update-sources}
+  sh %{sudo gem install #{install_home} pkg/#{NAME}-#{GEM_VERSION} --no-update-sources}
 end
 
 desc "create a gemspec file"
