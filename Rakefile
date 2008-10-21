@@ -11,7 +11,7 @@ NAME = "merb_meta"
 GEM_VERSION = "0.0.4"
 AUTHOR = "Cory ODaniel"
 EMAIL = "merb-meta@coryodaniel.com"
-HOMEPAGE = "http://merbivore.com/"
+HOMEPAGE = "http://github.com/coryodaniel/merb_meta"
 SUMMARY = "A plugin for the Merb framework that provides easy access to setting per-page meta tags."
 
 spec = Gem::Specification.new do |s|
@@ -26,10 +26,8 @@ spec = Gem::Specification.new do |s|
   s.author = AUTHOR
   s.email = EMAIL
   s.homepage = HOMEPAGE
-  s.add_dependency('merb', '>= 0.0.0')
   s.require_path = 'lib'
   s.files = %w(LICENSE README Rakefile TODO) + Dir.glob("{lib,spec}/**/*")
-  
 end
 
 Rake::GemPackageTask.new(spec) do |pkg|
