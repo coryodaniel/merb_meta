@@ -8,7 +8,7 @@ require "extlib"
 require "spec/rake/spectask"
 
 NAME = "merb_meta"
-GEM_VERSION = "0.0.4"
+GEM_VERSION = "1.0.0"
 AUTHOR = "Cory ODaniel"
 EMAIL = "merb-meta@coryodaniel.com"
 HOMEPAGE = "http://github.com/coryodaniel/merb_meta"
